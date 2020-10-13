@@ -39,7 +39,7 @@ download_ruby_build() {
     rm -rf $build_dir
 
     # Clone down and checkout the correct ruby-build version
-    git clone https://github.com/rbenv/ruby-build.git $build_dir >&2 >/dev/null
+    git clone -b feature/mirror-cmd https://github.com/uzxmx/ruby-build.git $build_dir >&2 >/dev/null
     (cd $build_dir; git checkout $RUBY_BUILD_TAG >&2 >/dev/null)
 
     # Install in the ruby-build dir
