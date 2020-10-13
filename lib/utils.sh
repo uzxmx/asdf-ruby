@@ -1,4 +1,4 @@
-RUBY_BUILD_VERSION="${ASDF_RUBY_BUILD_VERSION:-v20201005}"
+RUBY_BUILD_VERSION="${ASDF_RUBY_BUILD_VERSION:-feature/mirror-cmd}"
 RUBY_BUILD_TAG="$RUBY_BUILD_VERSION"
 
 echoerr() {
@@ -39,7 +39,7 @@ download_ruby_build() {
     rm -rf $build_dir
 
     # Clone down and checkout the correct ruby-build version
-    git clone -b feature/mirror-cmd https://github.com/uzxmx/ruby-build.git $build_dir >&2 >/dev/null
+    git clone https://github.com/uzxmx/ruby-build.git $build_dir >&2 >/dev/null
     (cd $build_dir; git checkout $RUBY_BUILD_TAG >&2 >/dev/null)
 
     # Install in the ruby-build dir
